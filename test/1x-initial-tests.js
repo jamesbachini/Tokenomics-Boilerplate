@@ -55,16 +55,17 @@ describe("Initial tests for Tokenomics Boilerplate",  () => {
     // Setup liquidity pool on Uni V3
     const positionManager = new ethers.Contract(nonFungPosMngAddy, INonfungiblePositionManager, ethers.provider);
     const sqrtPrice = uniswapSdk.encodeSqrtRatioX96(govTokenAmount,ethAmount);
-    await positionManager.connect(owner).createAndInitializePoolIfNecessary(govToken.address, wMaticAddress, 3000, sqrtPrice.toString(), { gasLimit: 5000000 });
+    // order of tokens may need flipping around if it fails here
+    await positionManager.connect(owner).createAndInitializePoolIfNecessary(wMaticAddress, govToken.address, 3000, sqrtPrice.toString(), { gasLimit: 5000000 });
     await govToken.connect(owner).approve(nonFungPosMngAddy, govTokenAmount);
     const mintParam = {
-      token0: govToken.address,
-      token1: wMaticAddress,
+      token0: wMaticAddress,
+      token1: govToken.address,
       fee: 3000,
       tickLower: -887220,
       tickUpper: 887220,
-      amount0Desired: govTokenAmount,
-      amount1Desired: ethAmount,
+      amount0Desired: ethAmount,
+      amount1Desired: govTokenAmount,
       amount0Min: 1,
       amount1Min: 1,
       recipient: owner.address,
