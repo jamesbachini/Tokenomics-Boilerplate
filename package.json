@@ -1,0 +1,28 @@
+{
+  "name": "Tokenomics-Boilerplate",
+  "version": "1.0.1",
+  "description": "Tokenomics Boilerplate For Solidity",
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@openzeppelin/contracts": "4.3.2",
+    "@openzeppelin/hardhat-upgrades": "1.10.0",
+    "@uniswap/v3-periphery": "^1.4.0",
+    "@uniswap/v3-sdk": "^3.8.2",
+    "chai": "^4.3.4",
+    "dotenv": "^14.2.0",
+    "ethereum-waffle": "^3.2.0",
+    "ethers": "^5.0.0",
+    "hardhat": "^2.8.3"
+  },
+  "keywords": [
+    "Solidity",
+    "Boilerplate",
+    "Governance Token",
+    "Tokenomics",
+    "Staking",
+    "Buy Back",
+    "Uniswap"
+  ],
+  "author": "James Bachini"
+}
